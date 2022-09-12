@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <TheHeader/>
+  <nav class="pt-3 drop-shadow-md">
+    <TheHeader class="z-50"/>
 
   </nav>
   <router-view/>
@@ -21,7 +21,10 @@ import TheHeader from '@/components/TheHeader.vue'
 }
 
 nav {
-  padding: 30px;
+  /* padding: 30px; */
+  margin-bottom: 4px;
+  margin-top: 4px;
+  
 }
 
 nav a {

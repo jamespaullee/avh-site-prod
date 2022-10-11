@@ -18,16 +18,14 @@
           <p
             class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"
           >
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat aliqua.
+            Commercial plumbing services are an important part of keeping any business up and running. From maintaining proper water pressure to keeping drainage systems clear, <b>AVH Plumbing</b> keeps your business running smoothly.
           </p>
           <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
-              <a
-                href="#"
+              <router-link
+                to="/pricing"
                 class="flex w-full items-center justify-center rounded-md border border-transparent bg-red-700 px-8 py-3 text-base font-medium text-white hover:bg-red-600 md:py-4 md:px-10 md:text-lg"
-                >View Pricing</a
+                >View Pricing</router-link
               >
             </div>
             <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">

@@ -1,5 +1,8 @@
 <template>
-  <div class="careers">
-    <h1>This is the careers page motha fucka</h1>
-  </div>
+  <CareersForm />
 </template>
+
+<script setup>
+import CareersForm from '@/components/CareersForm.vue'
+
+</script>

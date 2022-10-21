@@ -1,5 +1,9 @@
 <template>
   <div class="pricing">
-    <h1>This is the pricing page motha fucka</h1>
+    <PriceForm></PriceForm>
   </div>
 </template>
+
+<script setup>
+import PriceForm from '@/components/PriceForm.vue'
+</script>

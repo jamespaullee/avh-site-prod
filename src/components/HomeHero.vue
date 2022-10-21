@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="relative bg-gray-100 py-5 z-10">
+  <div class="relative bg-gray-100 py-5">
     <main class="lg:relative">
       <div
         class="mx-auto w-full max-w-7xl pt-16 pb-20 text-center  lg:text-left"
@@ -29,10 +29,10 @@
               >
             </div>
             <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <a
-                href="#"
+              <router-link
+                to="/about#"
                 class="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-blue-800 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
-                >Learn About Us</a
+                >Learn About Us</router-link
               >
             </div>
           </div>

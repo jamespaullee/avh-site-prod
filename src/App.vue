@@ -1,15 +1,15 @@
 <template>
-  <nav class="pt-3 drop-shadow-md">
-    <TheHeader class="z-50"/>
-
+  <nav class="z-50 pt-3 drop-shadow-md">
+    <TheHeader />
   </nav>
-  <router-view/>
+  <div class="z-10">
+    <router-view />
+  </div>
 </template>
 
 <script setup>
-import TheHeader from '@/components/TheHeader.vue'
+import TheHeader from "@/components/TheHeader.vue";
 </script>
-
 
 <style>
 /* #app {
@@ -24,7 +24,6 @@ nav {
   /* padding: 30px; */
   margin-bottom: 4px;
   margin-top: 4px;
-  
 }
 
 nav a {

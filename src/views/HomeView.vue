@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeHero class="z-10"/>
+    <HomeHero/>
     <HomeServices/>
     <HomeFeature/>
     <HomeLogos/>

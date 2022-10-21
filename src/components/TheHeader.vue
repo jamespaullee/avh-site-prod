@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="relative bg-white">
+  <Popover class="absoluts bg-white">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -21,14 +21,14 @@
           <router-link to="/careers" class="text-base font-medium text-gray-500 hover:text-red-700 hover:font-medium">Careers</router-link>
           <router-link to="/about" class="text-base font-medium text-gray-500 hover:text-red-700 hover:font-medium">About</router-link>
 
-          <Popover class="relative z-50" v-slot="{ open }">
+          <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
               <span>More</span>
               <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
             </PopoverButton>
 
             <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-              <PopoverPanel class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
+              <PopoverPanel class="absolute z-auto left-1/2 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                     <a v-for="item in resources" :key="item.name" :href="item.href" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
@@ -68,7 +68,7 @@
     </div>
 
     <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-      <PopoverPanel focus class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+      <PopoverPanel focus class="absolute z-auto inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
         <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
           <div class="px-5 pt-5 pb-6">
             <div class="flex items-center justify-between">

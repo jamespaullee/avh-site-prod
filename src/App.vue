@@ -3,7 +3,6 @@
     <TheHeader />
   </nav>
   <div class="z-10">
-    
     <router-view />
   </div>
 </template>

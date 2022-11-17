@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="relative bg-gray-100 py-5">
+  <div class="relative bg-gray-100 py-5 z-1">
     <main class="lg:relative">
       <div
         class="mx-auto w-full max-w-7xl pt-16 pb-20 text-center  lg:text-left"

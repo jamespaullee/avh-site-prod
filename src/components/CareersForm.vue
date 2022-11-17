@@ -111,7 +111,7 @@
             <h3 class="text-lg font-medium text-white">Contact Information</h3>
             <p class="mt-6 max-w-3xl text-base text-indigo-50">
               AVH Plumbing currently has several opportunities accross the
-              southeastern United States, including FL, GA, and AL. Complete
+              southeastern United States, including Forida, Georgia, and Alabama. Complete
               this form to apply.
             </p>
             <dl class="mt-8 space-y-6">
@@ -168,9 +168,9 @@
 
           <!-- Contact form -->
           <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-            <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+            <h3 class="text-lg font-medium text-gray-900">Submit Your Application</h3>
             <form
-              @submit="submitForm"
+              @submit.prevent="submitForm"
               class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
             >
               <div>
@@ -185,6 +185,7 @@
                     name="first-name"
                     id="first-name"
                     autocomplete="given-name"
+                    v-model="firstName"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   />
                 </div>
@@ -201,6 +202,7 @@
                     name="last-name"
                     id="last-name"
                     autocomplete="family-name"
+                    v-model="lastName"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   />
                 </div>
@@ -217,6 +219,7 @@
                     name="email"
                     type="email"
                     autocomplete="email"
+                    v-model="email"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   />
                 </div>
@@ -238,6 +241,7 @@
                     name="phone"
                     id="phone"
                     autocomplete="tel"
+                    v-model="phone"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     aria-describedby="phone-optional"
                   />
@@ -254,6 +258,7 @@
                     type="text"
                     name="subject"
                     id="subject"
+                    v-model="subject"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   />
                 </div>
@@ -263,7 +268,7 @@
                   <label
                     for="message"
                     class="block text-sm font-medium text-gray-900"
-                    >Message</label
+                    >Message to Hiring Manager</label
                   >
                   <span id="message-max" class="text-sm text-gray-500"
                     >Max. 500 characters</span
@@ -274,6 +279,7 @@
                     id="message"
                     name="message"
                     rows="4"
+                    v-model="message"
                     class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     aria-describedby="message-max"
                   />
@@ -297,22 +303,49 @@
 
 <script setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
+import axios from "axios";
+import { ref } from "vue";
 
 // const firstName = 'James'
 
+// function submitForm() {
+//   fetch(
+//     "https://vue-http-demo-5b34f-default-rtdb.firebaseio.com/applicants.json",
+//     {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         name: "James",
+//       }),
+//     }
+//   ),
+// }
+
+const firstName = ref('')
+const lastName = ref('')
+const email = ref('')
+const phone = ref('')
+const subject = ref('')
+const message = ref('')
+
 function submitForm() {
-  fetch(
-    "https://vue-http-demo-5b34f-default-rtdb.firebaseio.com/applicants.json",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: "James",
-      }),
-    }
-  ),
-    console.log("Hello");
+  axios.post("https://vue-http-demo-5b34f-default-rtdb.firebaseio.com/applicants.json", {
+    first_name: firstName.value,
+    last_name: lastName.value,
+    email: email.value,
+    phone: phone.value,
+    subject: subject.value,
+    message: message.value
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
+  console.log("Hello");
 }
 </script>

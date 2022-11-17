@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="absoluts bg-white">
+  <Popover class="bg-white">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -70,7 +70,7 @@
     <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
       <PopoverPanel focus class="absolute z-auto inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
         <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-          <div class="px-5 pt-5 pb-6">
+          <div class="px-5 pt-5 pb-6 ">
             <div class="flex items-center justify-between">
               <div>
                 <img class="h-8 w-auto" src="https://avhstorage.blob.core.windows.net/website/logo.png" alt="Your Company" />

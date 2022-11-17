@@ -1,8 +1,8 @@
 <template>
-  <nav class="z-50 pt-3 drop-shadow-md">
+  <nav class="pt-3 drop-shadow-md sticky top-0 z-10 bg-white">
     <TheHeader />
   </nav>
-  <div class="z-10">
+  <div class="">
     <router-view />
   </div>
 </template>

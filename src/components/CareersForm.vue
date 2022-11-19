@@ -251,18 +251,22 @@
                 <label
                   for="subject"
                   class="block text-sm font-medium text-gray-900"
-                  >Subject</label
+                  >Select a Position</label
                 >
                 <div class="mt-1">
-                  <input
-                    type="text"
+                  <select
                     name="subject"
                     id="subject"
                     v-model="subject"
-                    class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                  />
+                    class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                  >
+                  <option value="Technician">Technician</option>
+                  <option value="Supervisor">Supervisor</option>
+                  <option value="Support">Office / Support</option>
+                  </select>
                 </div>
               </div>
+
               <div class="sm:col-span-2">
                 <div class="flex justify-between">
                   <label

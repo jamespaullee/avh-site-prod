@@ -18,6 +18,7 @@
       <div class="border-t border-gray-200" />
     </div>
   </div>
+  <p>{{store.zipCode}}</p>
 
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -181,3 +182,11 @@
   </div>
 
 </template>
+
+
+<script setup>
+import {useStore} from '@/stores/pinia'
+
+const store = useStore()
+
+</script>

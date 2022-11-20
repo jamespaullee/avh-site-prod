@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="Progress" class="sticky top-11 bg-white">
+  <nav aria-label="Progress" class=" bg-white">
     <ol
       role="list"
       class="divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0"
@@ -11,12 +11,11 @@
       >
         <a
           v-if="step.status === 'complete'"
-          :href="step.href"
           class="group flex w-full items-center"
         >
           <span class="flex items-center px-6 py-4 text-sm font-medium">
             <span
-              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 group-hover:bg-indigo-800"
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 "
             >
               <CheckIcon class="h-6 w-6 text-white" aria-hidden="true" />
             </span>
@@ -27,7 +26,6 @@
         </a>
         <a
           v-else-if="step.status === 'current'"
-          :href="step.href"
           class="flex items-center px-6 py-4 text-sm font-medium"
           aria-current="step"
         >
@@ -40,17 +38,17 @@
             step.name
           }}</span>
         </a>
-        <a v-else :href="step.href" class="group flex items-center">
+        <a v-else class="group flex items-center">
           <span class="flex items-center px-6 py-4 text-sm font-medium">
             <span
-              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300 group-hover:border-gray-400"
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300"
             >
-              <span class="text-gray-500 group-hover:text-gray-900">{{
+              <span class="text-gray-500">{{
                 step.id
               }}</span>
             </span>
             <span
-              class="ml-4 text-sm font-medium text-gray-500 group-hover:text-gray-900"
+              class="ml-4 text-sm font-medium text-gray-500"
               >{{ step.name }}</span
             >
           </span>
@@ -94,6 +92,9 @@
 import PriceForm from "@/components/PriceForm.vue";
 import PriceLocation from "@/components/PriceLocation.vue";
 import { CheckIcon } from "@heroicons/vue/24/solid";
+import {useStore} from '@/stores/pinia'
+
+const store = useStore()
 
 const steps = [
   { id: "01", name: "Location", href: "#", status: "current" },
@@ -102,8 +103,12 @@ const steps = [
 ];
 
 const showAlert = () => {
+  if (store.zipCode != null && store.zipCode.length == 5) 
   steps[0].status = "complete",
-  steps[1].status = "current"
+  steps[1].status = "current";
+  else {
+    alert('Please Enter a 5 Digit Zip Code')
+  }
 }
 
 </script>

@@ -20,11 +20,7 @@ import TheHeader from "@/components/TheHeader.vue";
   color: #2c3e50;
 } */
 
-nav {
-  /* padding: 30px; */
-  margin-bottom: 4px;
-  margin-top: 4px;
-}
+
 
 nav a {
   font-weight: bold;

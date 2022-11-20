@@ -1,192 +1,169 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-  <div class="hidden sm:block" aria-hidden="true">
-    <div class="py-5">
-      <div class="border-t border-gray-200" />
-    </div>
-  </div>
-  <p>{{store.zipCode}}</p>
 
-  <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-      <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">
-            Instant Pricing Tool
-          </h3>
-          <p class="mt-1 text-sm text-gray-600">
-            Complete the form for an instant pricing quote.
-          </p>
-        </div>
+  <div class="overflow-hidden bg-white px-4 sm:px-6 lg:px-8">
+    <div class="relative mx-auto max-w-xl">
+      <svg
+        class="absolute left-full translate-x-1/2 transform"
+        width="404"
+        height="404"
+        fill="none"
+        viewBox="0 0 404 404"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="85737c0e-0916-41d7-917f-596dc7edfa27"
+            x="0"
+            y="0"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect
+              x="0"
+              y="0"
+              width="4"
+              height="4"
+              class="text-gray-200"
+              fill="currentColor"
+            />
+          </pattern>
+        </defs>
+        <rect
+          width="404"
+          height="404"
+          fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"
+        />
+      </svg>
+      <svg
+        class="absolute right-full bottom-0 -translate-x-1/2 transform"
+        width="404"
+        height="404"
+        fill="none"
+        viewBox="0 0 404 404"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="85737c0e-0916-41d7-917f-596dc7edfa27"
+            x="0"
+            y="0"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect
+              x="0"
+              y="0"
+              width="4"
+              height="4"
+              class="text-gray-200"
+              fill="currentColor"
+            />
+          </pattern>
+        </defs>
+        <rect
+          width="404"
+          height="404"
+          fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"
+        />
+      </svg>
+      <div class="mt-8 text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Serivce Details
+        </h2>
+        <p class="mt-4 text-lg leading-6 text-gray-500">
+          Tell us more about what you're experiencing and the urgency of your
+          request.
+        </p>
       </div>
-      <div class="mt-5 md:col-span-2 md:mt-0">
-        <form action="#" method="POST">
-          <div class="overflow-hidden shadow sm:rounded-md">
-            <div class="bg-white px-4 py-5 sm:p-6">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="first-name"
-                    class="block text-sm font-medium text-gray-700"
-                    >First name</label
-                  >
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    autocomplete="given-name"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
+      <div class="mt-12">
+        <form
+          action="#"
+          class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+        >
+          <div>
+            <label
+              for="service-description"
+              class="block text-sm font-medium text-gray-700"
+              >Service Description</label
+            >
+            <select
+              id="service-description"
+              name="service-description"
+              v-model="store.serviceDesc"
+              class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+            >
+              <option value ="Clog" selected="">Clogged Drain / Toilet</option>
+              <option value ="Fixture Replacement">Fixture Replacement</option>
+              <option value ="Leak or Damaged Fixture">Leaking / Damaged Fixture</option>
+              <option value ="Leak or Damaged Pipe">Leaking / Damaged Pipe</option>
+              <option value ="Water Pressure">Water Pressure Adjustment</option>
+              <option value ="Water Heater">Water Running Cold</option>
+              <option value ="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label
+              for="service-urgency"
+              class="block text-sm font-medium text-gray-700"
+              >Service Urgency</label
+            >
+            <select
+              id="service-urgency"
+              name="service-urgency"
+              v-model="store.serviceUrgency"
+              class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+            >
+              <option value="1 Day" selected="">1 Day</option>
+              <option value="Same Day" >Same Day</option>
+              <option value="Rush" >2 Hour / After-Hours</option>
+            </select>
+          </div>
 
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="last-name"
-                    class="block text-sm font-medium text-gray-700"
-                    >Last name</label
-                  >
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    autocomplete="family-name"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-
-                <div class="col-span-6 sm:col-span-4">
-                  <label
-                    for="email-address"
-                    class="block text-sm font-medium text-gray-700"
-                    >Email address</label
-                  >
-                  <input
-                    type="text"
-                    name="email-address"
-                    id="email-address"
-                    autocomplete="email"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="country"
-                    class="block text-sm font-medium text-gray-700"
-                    >Call Type</label
-                  >
-                  <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
-                    class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  >
-                    <option>General Service Call</option>
-                    <option>Premium Rush Call</option>
-                    <option>Jetting Service</option>
-                  </select>
-                </div>
-
-                <div class="col-span-6">
-                  <label
-                    for="street-address"
-                    class="block text-sm font-medium text-gray-700"
-                    >Street address</label
-                  >
-                  <input
-                    type="text"
-                    name="street-address"
-                    id="street-address"
-                    autocomplete="street-address"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-
-                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label
-                    for="city"
-                    class="block text-sm font-medium text-gray-700"
-                    >City</label
-                  >
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    autocomplete="address-level2"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label
-                    for="region"
-                    class="block text-sm font-medium text-gray-700"
-                    >State / Province</label
-                  >
-                  <input
-                    type="text"
-                    name="region"
-                    id="region"
-                    autocomplete="address-level1"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label
-                    for="postal-code"
-                    class="block text-sm font-medium text-gray-700"
-                    >ZIP / Postal code</label
-                  >
-                  <input
-                    type="text"
-                    name="postal-code"
-                    id="postal-code"
-                    autocomplete="postal-code"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-              <button
-                type="submit"
-                class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Save
-              </button>
-            </div>
+          <div class="sm:col-span-2 text-center">
+            <a
+            @click="getQuote"
+              type="submit"
+              class="inline-flex w-1/2 items-center justify-center text-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Get Quote
+          </a>
           </div>
         </form>
+        <div
+    class="container mx-auto text-center columns-1 overflow-hidden bg-white py-8"
+  >
+    <a
+      @click="reloadPricing"
+      href="#"
+      class="inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    >
+      Go Back
+    </a>
+  </div>
       </div>
     </div>
   </div>
-
-  <div class="hidden sm:block" aria-hidden="true">
-    <div class="py-5">
-      <div class="border-t border-gray-200" />
-    </div>
-  </div>
-
+  
 </template>
 
-
 <script setup>
-import {useStore} from '@/stores/pinia'
+import { ref } from "vue";
+import { Switch } from "@headlessui/vue";
+import { useStore } from "@/stores/pinia";
 
-const store = useStore()
+const agreed = ref(false);
+
+const store = useStore();
+
+const reloadPricing = () => {
+  location.reload();
+};
+
+const getQuote = () => {
+  console.log(store.serviceDesc)
+  console.log(store.serviceUrgency)
+};
 
 </script>
